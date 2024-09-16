@@ -28,5 +28,14 @@ class DocxFormatter(inf.Formatter):
         self._index += 1
         return Chunk(res)
 
+    def get_chunk(self) -> Chunk | None:
+        if len(self._doc.paragraphs) <= self._index:
+            return None
+
+        res = self._doc.paragraphs[self._index]
+        self._index += 1
+
+        return Chunk(res)
+
     def save(self, dst_path):
         self._doc.save(dst_path)
