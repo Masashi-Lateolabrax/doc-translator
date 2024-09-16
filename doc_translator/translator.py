@@ -29,7 +29,7 @@ class Translator:
             raise RuntimeError("Not support")
 
         while True:
-            chunk = fm.get_line()
+            chunk = fm.get_chunk()
             if chunk is None:
                 break
 
