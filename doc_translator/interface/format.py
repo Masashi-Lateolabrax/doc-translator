@@ -1,7 +1,7 @@
 import abc
 
 
-class Translator(metaclass=abc.ABCMeta):
+class Formatter(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def set_settings(self, **kwargs):
         raise NotImplemented
