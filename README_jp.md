@@ -48,3 +48,13 @@ pip install git+https://github.com/Masashi-Lateolabrax/doc-translator
 *fix*プレフィックスでコミットしてください．
 
 このとき*add*プレフィックスのコミット時，もしくは後から*doc*プレフィックスでバグの要因となった関数に非推奨であることがわかるような記載を行ってください．
+
+### Branching Strategy
+
+| Branch | Description          | To               |
+|--------|----------------------|------------------|
+| main   | 公開用のブランチ             | -                |
+| root   | 新規ブランチの元となるブランチ      | feat/*, dev, lib |
+| feat/* | 機能ごとに独立して開発するためのブランチ | dev              |
+| dev    | 各機能を統合するためのブランチ      | main             |
+| lib    | ライブラリの開発用ブランチ        | root,feat/*      |
