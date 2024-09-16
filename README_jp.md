@@ -55,6 +55,6 @@ pip install git+https://github.com/Masashi-Lateolabrax/doc-translator
 |---------|----------------------|--------------------|
 | main    | 公開用のブランチ             | -                  |
 | root    | 新規ブランチの元となるブランチ      | feat/*, share      |
-| feat/*  | 機能ごとに独立して開発するためのブランチ | development        |
+| feat/*  | 機能ごとに独立して開発するためのブランチ | develop            |
 | develop | 各機能を統合するためのブランチ      | main               |
 | share   | 各機能で共有する部分の開発用ブランチ   | root               |
