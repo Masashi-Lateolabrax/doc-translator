@@ -39,7 +39,6 @@ pip install git+https://github.com/Masashi-Lateolabrax/doc-translator
 | mod    | インターフェイスの変更を伴わない変更を行ったときに使用    |
 | fix    | バグを修正し問題の解決が確認されたときに使用         |
 | doc    | ドキュメントファイルやDocStringを変更したときに使用 |
-| root   | rootブランチに変更があったときに使用           |
 
 ドキュメントファイルを追加・移動・消去した場合は*add*・*mov*・*rem*ではなく*doc*を優先して使ってください．
 
