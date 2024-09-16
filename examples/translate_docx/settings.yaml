@@ -1,0 +1,4 @@
+organization: "YOUR_ORGANIZATION"
+project: "YOUR_PROJECT"
+api_key: "YOUR_API_KEY"
+prompt: 次の英文を日本語に翻訳してください．返答では翻訳後の日本語だけを答え，それ以外の発言は含めないでください．うまく翻訳できない場合は元の文章をそのまま返してください．
