@@ -6,16 +6,16 @@
 
 ### Formats
 
-| Format | Details                  | Version | Status  |
-|--------|--------------------------|---------|---------|
-| docx   | Microsoft Word Documents | -       | Planned |
-| md     | Mark Down                | -       | Planned |
+| Format | Details                  | Version | Status    |
+|--------|--------------------------|---------|-----------|
+| docx   | Microsoft Word Documents | -       | Supported |
+| md     | Mark Down                | -       | Planned   |
 
 ### Translator
 
-| Translator | Version | Status  |
-|------------|---------|---------|
-| ChatGPT    | -       | Planned |
+| Translator | Version     | Status    |
+|------------|-------------|-----------|
+| ChatGPT    | gpt-4o-mini | Supported |
 
 ## For Python Developers
 
