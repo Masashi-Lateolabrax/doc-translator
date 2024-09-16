@@ -3,7 +3,11 @@ import abc
 
 class Formatter(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def set_settings(self, **kwargs):
+    def __init__(self, **settings):
+        raise NotImplemented
+
+    @abc.abstractmethod
+    def set_settings(self, **settings):
         raise NotImplemented
 
     @abc.abstractmethod
