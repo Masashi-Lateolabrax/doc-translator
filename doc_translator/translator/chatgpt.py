@@ -27,6 +27,9 @@ class ChatGPT(Translator):
         self._model = settings.get("model", self._model)
 
     def translate_line(self, src: str) -> str:
+        if all(not c.isspace() for c in src):
+            return src
+
         messages = [
             {"role": "system", "content": self._prompt},
             {"role": "user", "content": src}
