@@ -52,10 +52,10 @@ pip install git+https://github.com/Masashi-Lateolabrax/doc-translator
 
 ### Branching Strategy
 
-| Branch | Description          | To               |
-|--------|----------------------|------------------|
-| main   | 公開用のブランチ             | -                |
-| root   | 新規ブランチの元となるブランチ      | feat/*, dev, lib |
-| feat/* | 機能ごとに独立して開発するためのブランチ | dev              |
-| dev    | 各機能を統合するためのブランチ      | main             |
-| lib    | ライブラリの開発用ブランチ        | root,feat/*      |
+| Branch  | Description          | To               |
+|---------|----------------------|------------------|
+| main    | 公開用のブランチ             | -                |
+| root    | 新規ブランチの元となるブランチ      | feat/*, dev, lib |
+| feat/*  | 機能ごとに独立して開発するためのブランチ | dev              |
+| develop | 各機能を統合するためのブランチ      | main             |
+| share   | 各機能で共有する部分の開発用ブランチ   | root,feat/*      |
