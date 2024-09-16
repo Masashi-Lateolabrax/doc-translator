@@ -34,5 +34,7 @@ class ChatGPT(Translator):
             {"role": "system", "content": self._prompt},
             {"role": "user", "content": src}
         ]
-        response = openai.ChatCompletion.create(model=self._model, messages=messages)
+        response = self._client.chat.completions.create(
+            model=self._model, messages=messages
+        )
         return response.choices[0].message.content
