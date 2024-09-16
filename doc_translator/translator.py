@@ -1,3 +1,5 @@
+import os
+
 from . import interface as inf
 
 
@@ -18,4 +20,20 @@ class Translator:
         this.__init__(translator, **settings)
 
     def translate(self, src_path, dst_path):
-        raise NotImplemented
+        _, ext = os.path.splitext(src_path)
+
+        if ".docx" == ext:
+            from .formatter import DocxFormatter
+            fm = DocxFormatter(src_path=src_path)
+        else:
+            raise RuntimeError("Not support")
+
+        while True:
+            chunk = fm.get_line()
+            if chunk is None:
+                break
+
+            translated = self._translator.translate_line(chunk.read())
+            chunk.write(translated)
+
+        fm.save(dst_path)
