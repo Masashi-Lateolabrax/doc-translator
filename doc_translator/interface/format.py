@@ -21,10 +21,6 @@ class Formatter(metaclass=abc.ABCMeta):
         raise NotImplemented
 
     @abc.abstractmethod
-    def get_line(self) -> str:
-        raise NotImplemented
-
-    @abc.abstractmethod
     def __iter__(self):
         raise NotImplemented
 
