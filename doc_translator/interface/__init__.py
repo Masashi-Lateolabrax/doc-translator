@@ -1,2 +1,2 @@
-from .format import Formatter
+from .format import Formatter, Chunk
 from .translator import Translator

@@ -10,6 +10,7 @@ python = "^3.11"
 openai = "^1.45.0"
 pyyaml = "^6.0.2"
 python-docx = "^1.1.2"
+odfdo = "^3.8.0"
 
 
 [build-system]
