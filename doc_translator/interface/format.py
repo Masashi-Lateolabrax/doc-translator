@@ -1,6 +1,16 @@
 import abc
 
 
+class Chunk(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def read(self) -> str:
+        raise NotImplemented
+
+    @abc.abstractmethod
+    def write(self, txt):
+        raise NotImplemented
+
+
 class Formatter(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def __init__(self, **settings):
@@ -11,5 +21,9 @@ class Formatter(metaclass=abc.ABCMeta):
         raise NotImplemented
 
     @abc.abstractmethod
-    def get_line(self) -> str:
+    def __iter__(self):
+        raise NotImplemented
+
+    @abc.abstractmethod
+    def __next__(self) -> Chunk | None:
         raise NotImplemented
