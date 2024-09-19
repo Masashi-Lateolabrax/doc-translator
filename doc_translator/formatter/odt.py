@@ -1,3 +1,5 @@
+import lxml.etree as ET
+
 from odfdo import Document, Element
 
 from .. import interface as inf
@@ -11,6 +13,11 @@ class Chunk(inf.Chunk):
         return self._e.serialize(with_ns=True)
 
     def write(self, txt):
+        try:
+            ET.fromstring(txt)
+        except ET.ParseError as e:
+            raise RuntimeError(f"{e}\n\n{txt}")
+
         new = self._e.from_tag(txt)
         self._e.parent.replace_element(self._e, new)
 
