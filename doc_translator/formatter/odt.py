@@ -4,33 +4,40 @@ from .. import interface as inf
 
 
 class Chunk(inf.Chunk):
-    def __init__(self, paragraph: Element):
-        self._p = paragraph
+    def __init__(self, e: Element):
+        self._e = e
 
     def read(self) -> str:
-        return self._p.text
+        return self._e.serialize(with_ns=True)
 
     def write(self, txt):
-        self._p.text = txt
+        new = self._e.from_tag(txt)
+        self._e.parent.replace_element(self._e, new)
 
 
 class OdtFormatter(inf.Formatter):
-
     def __init__(self, *, src_path, **settings):
         self.doc = Document(src_path)
         self.paragraphs = self.doc.body.paragraphs
-        self.index = 0
+        self.idx = 0
 
     def __iter__(self):
-        self.index = 0
+        self.paragraphs = self.doc.body.paragraphs
+        self.idx = 0
         return self
 
     def __next__(self) -> Chunk | None:
-        if self.index >= len(self.paragraphs):
-            return None
+        if self.idx >= len(self.paragraphs):
+            raise StopIteration
 
-        res = self.paragraphs[self.index]
-        self.index += 1
+        res = self.paragraphs[self.idx]
+        self.idx += 1
+        while len(res.text_recursive) == 0:
+            res = self.paragraphs[self.idx]
+            self.idx += 1
+            if self.idx >= len(self.paragraphs):
+                raise StopIteration
+
         return Chunk(res)
 
     def set_settings(self, **settings):
