@@ -1,3 +1,5 @@
+import copy
+
 import openai
 
 from ..interface import *
@@ -21,6 +23,8 @@ class ChatGPT(Translator):
         )
         self._model = settings.get("model", "gpt-4o-mini")
 
+        self.messages = []
+
         self.set_settings(**settings)
 
     def set_settings(self, **settings):
@@ -31,11 +35,20 @@ class ChatGPT(Translator):
         if all(not c.isspace() for c in src):
             return src
 
-        messages = [
-            {"role": "system", "content": self._prompt},
-            {"role": "user", "content": src}
-        ]
+        self.messages.append({"role": "user", "content": src})
+        res = self.chat(self.messages, self._prompt)
+        self.messages.append({"role": "assistant", "content": res})
+
+        while len(self.messages) > 6:
+            self.messages.pop(0)
+
+        return res
+
+    def chat(self, messages, prompt: str | None = ""):
+        msg = copy.copy(messages)
+        if prompt is not None and len(prompt) > 0:
+            msg.insert(-1, {"role": "system", "content": prompt})
         response = self._client.chat.completions.create(
-            model=self._model, messages=messages
+            model=self._model, messages=msg
         )
         return response.choices[0].message.content
