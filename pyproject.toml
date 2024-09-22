@@ -11,7 +11,25 @@ openai = "^1.45.0"
 pyyaml = "^6.0.2"
 python-docx = "^1.1.2"
 odfdo = "^3.8.0"
+torch = {version = "^2.4.1+cpu", source = "torch_cpu"}
+torchvision = {version = "^0.19.1+cpu", source = "torch_cpu"}
+torchaudio = {version = "^2.4.1+cpu", source = "torch_cpu"}
+marker-pdf = "^0.2.17"
+markdown = "^3.7"
+bs4 = "^0.0.2"
+markdownify = "^0.13.1"
 
+
+[[tool.poetry.source]]
+name = "torch_cu118"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
+
+
+[[tool.poetry.source]]
+name = "torch_cpu"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
 
 [build-system]
 requires = ["poetry-core"]

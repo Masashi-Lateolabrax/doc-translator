@@ -1,0 +1,4 @@
+organization: "YOUR_ORGANIZATION"
+project: "YOUR_PROJECT"
+api_key: "YOUR_API_KEY"
+prompt: 次の英文を表すXMLから日本語に翻訳されたときのXMLを書き出してください．返答では翻訳後のXMLだけを答え，それ以外の発言は含めないでください．うまく翻訳できない場合は英語のXMLをそのまま返してください．
